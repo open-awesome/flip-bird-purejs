@@ -28,6 +28,8 @@ canvas{
     float:left;
     margin:10px;
     cursor: pointer;
+    transform:translate(-50%,-50%);
+    color:white;
 }
 
 .gameover{

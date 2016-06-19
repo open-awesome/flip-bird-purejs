@@ -39,13 +39,14 @@ Obstacle.prototype = {
     }
 }
 
-function ObstacleS(world, ctx, bird) {
+function ObstacleS(world, ctx, bird, isNew) {
     var birdH = Setting.birdH;
+    isNew&&( ObstacleS._obstacles = []);
     var defaultOpts = ObstacleS.defaultOpts || (ObstacleS.defaultOpts = {
             obstacleCount: 5,
             obstaclePercent: 0.2,
             YScale: 0.5,
-            birdGapScale: 7,
+            birdGapScale: Setting.Obstacle.GapScale,
             obstacleTranslateX: world.dim.w,
             translateXScale: 0.01
         });
@@ -77,6 +78,7 @@ function ObstacleS(world, ctx, bird) {
 
         }
         else {
+            //create new
             var x = ((1 - defaultOpts.obstaclePercent) / 2 + i) * obstacleUnitW + defaultOpts.obstacleTranslateX;
             var h = (world.dim.h - birdH * defaultOpts.birdGapScale) / 2;
             var scaleY = h * (1 - 1 / 2 * Math.random());
@@ -103,11 +105,4 @@ function ObstacleS(world, ctx, bird) {
         topObstacle.draw(ctx);
         bottomObstacle.draw(ctx);
     }
-}
-ObstacleS.isCollide = function (bird) {
-    var obstacles = ObstacleS._obstacles;
-    for (var i = 0, len = ObstacleS.defaultOpts.obstacleCount; i < len; i++)
-         var dim = obstacles[i * 2].dim;
-    dim
-
 }

@@ -2,9 +2,10 @@
 <html>
  
     <head>
- 
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <script src="js/Equation.js" defer="defer" type="text/javascript" charset="utf-8"></script>
         <script src="js/Util.js" defer="defer" type="text/javascript" charset="utf-8"></script>
@@ -22,6 +23,15 @@
     <body>
         <span class="pieces">0</span>
         <canvas id="canvas" ></canvas>
+    <script>
+        window.onload(function() {
+            setTimeout(function(){
+                if(typeof(window.scrollTo) == 'function'){
+                    window.scrollTo(0, 1);
+                }
+            }, 100);
+        });
+    </script>
     </body>
  
 </html>

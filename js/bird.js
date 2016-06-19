@@ -40,7 +40,7 @@ Bird.prototype = {
             var now = +new Date();
             var elapseTime = this.lastFlyTime ? now - this.lastFlyTime : 0;
 
-            var g =  Equation.G;
+            var g =  Equation.G*Setting.Bird.GScale;
             if(this.pushUpState){
                 g= -10*g;
                 this.velocityY = 0;
